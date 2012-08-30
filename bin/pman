@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -z "$@" ]
+then
+  echo "Which manual page do you want?"
+else
+  man -t $@ | ps2pdf - | open -fa Preview
+fi
