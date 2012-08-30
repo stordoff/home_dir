@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "NOT IMPLEMENTED"
+
+echo 0 > ~/.backup_date
