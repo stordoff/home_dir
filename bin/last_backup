@@ -1,0 +1,12 @@
+#!/bin/bash
+# Print last backup time from ~/.backup_date
+
+if [ -e $HOME/.backup_date ]; then
+  last_backup=$(cat .backup_date)
+else
+  last_backup=0
+fi
+
+last_date=$(perl -e "print scalar(localtime($last_backup))")
+
+echo "Last backup on $last_date"
