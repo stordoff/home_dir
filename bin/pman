@@ -1,7 +1,18 @@
 #!/bin/bash
+
+# Open only works on OS X - xdg-open may work on Linux
+if [[ $(uname) != 'Darwin' ]]; then
+  echo "pman only supported on OS X"
+  exit 1
+fi
+
 if [ -z "$@" ]
 then
   echo "Which manual page do you want?"
 else
-  man -t $@ | ps2pdf - | open -fa Preview
+  if which -s ps2pdf; then
+    man -t $@ | ps2pdf - | open -fa Preview
+  else
+    man -t $@ | open -fa Preview
+  fi
 fi

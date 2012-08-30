@@ -47,3 +47,9 @@ else # OS X `ls`
 fi
 
 alias ls="ls ${colorflag}"
+
+# Load shell dotfiles
+for file in $HOME/.{aliases}; do
+  [ -r "$file" ] && source "$file"
+done
+unset file
