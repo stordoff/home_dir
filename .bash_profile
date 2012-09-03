@@ -39,15 +39,6 @@ if [ -d $HOME/bin ] ; then
  PATH=$HOME/bin:$PATH
 fi
 
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-        colorflag="--color"
-else # OS X `ls`
-        colorflag="-G"
-fi
-
-alias ls="ls ${colorflag}"
-
 # Load shell dotfiles
 for file in $HOME/.{aliases}; do
   [ -r "$file" ] && source "$file"
