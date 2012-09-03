@@ -1,1 +1,36 @@
-Make generic extracter
+#! /bin/bash
+#
+# BASH script to automagically uncompress different kinds of compressed files/folders
+#
+# Usage: extract.sh [COMPRESSED_FILENAME]
+# First written: Wed, 04 May 2011 05:14:10 -0400
+# Last modified: Wed, 04 May 2011 05:14:10 -0400
+#
+ 
+E_BADARGS=65
+ 
+if [ $# != 1 ];
+then
+  echo
+  echo "  Usage: `basename $0` [COMPRESSED_FILENAME]"
+  echo
+  exit $E_BADARGS
+else
+  if [ -f $1 ];
+  then
+    case $1 in
+      *.tar)       tar -xvf  $1  ;;
+      *.tgz)       tar -xvzf $1  ;;
+      *.tar.gz)    tar -xvzf $1  ;;
+      *.tbz2)      tar -xvjf $1  ;;
+      *.tar.bz2)   tar -xvjf $1  ;;
+      *.gz)        gunzip    $1  ;;
+      *.bz2)       bunzip2   $1  ;;
+      *.zip)       unzip     $1  ;;
+      *)           echo "  '$1' file type unknown" ;;
+    esac
+  else
+    echo "  '$1' is not a regular file"
+    echo
+  fi
+fi
