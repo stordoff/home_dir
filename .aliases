@@ -15,3 +15,12 @@ alias localip="ipconfig getifaddr en0"
 # Fix common typos
 alias cd..="cd .."
 alias mann="man"
+
+# Fix Windows related typos
+alias ipconfig="ifconfig"
+alias dir="ls"
+
+# Shortcuts
+alias commit="git commit -ma"
+alias ifen0="ifconfig en0"
+alias ifen1="ifconfig en1"
