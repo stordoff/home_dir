@@ -6,7 +6,9 @@ else # OS X ls
 fi
 
 alias ls="ls ${colorflag}"
-alias la="ls ${colorflag} -a"
+alias la="ls -a"
+alias ll="ls -l"
+alias lll="ls -l -a"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -15,12 +17,24 @@ alias localip="ipconfig getifaddr en0"
 # Fix common typos
 alias cd..="cd .."
 alias mann="man"
+alias l="ls"
+alias s="ls"
+alias sl="ls"
 
 # Fix Windows related typos
 alias ipconfig="ifconfig"
 alias dir="ls"
 
+# Navigation Shortcuts
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
 # Shortcuts
-alias commit="git commit -ma"
+alias commit="git commit -a -m"
 alias ifen0="ifconfig en0"
 alias ifen1="ifconfig en1"
+alias bash_history="cut -f1 -d\" \" .bash_history | sort | uniq -c | sort -nr | head -n 10"
+alias timestamp="date +%s"
+alias timenow="date +%T"
+alias datenow="date +\"%Y-%m-%d\""
