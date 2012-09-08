@@ -1,3 +1,8 @@
+# Add ~/bin to the path if it exists
+if [ -d $HOME/bin ] ; then
+ PATH=$HOME/bin:$PATH
+fi
+
 ## Check that offsite backup has been completed 
 # Checks .backup_date for last date, and warns if it is over
 # one week ago
@@ -16,15 +21,7 @@ if [[ "$last_backup" -le "$backup_due" ]] ; then
 # which -s perl would also work
 # Need to determine if this is likely to run on perlless system
 if which perl &> /dev/null; then
-perl <<'EOF'
-use strict;
-use Term::ANSIColor;
-
-print color 'red';
-print 'Warning: Last offsite backup was over one week ago'."\n";
-print color 'reset';
-EOF
-
+  warning "Last offsite backup was over one week ago"
 else
   echo "Warning: Last offsite backup was over one week ago"
 fi
@@ -32,11 +29,6 @@ echo "Use ~/bin/backup_weekly to update"
 
 else
   echo "Last backup is good"
-fi
-
-# Add ~/bin to the path if it exists
-if [ -d $HOME/bin ] ; then
- PATH=$HOME/bin:$PATH
 fi
 
 # Load shell dotfiles

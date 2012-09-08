@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+use strict;
+use Term::ANSIColor;
+use File::Basename;
+
+my $name = basename($0);
+
+if ($#ARGV != 0) {
+  print "\n";
+  print "  Usage: $name [WARNING_STRING] \n";
+  print "\n";
+  exit 2;
+}
+
+print color 'red';
+print 'Warning: ';
+print $ARGV[0]."\n";
+print color 'reset';
