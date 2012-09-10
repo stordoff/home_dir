@@ -1,1 +1,5 @@
 set smooth # Smooth scrolling
+
+## Syntax Highlighting
+# Markdown
+include "~/.nano/markdown.nanorc"

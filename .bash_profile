@@ -3,6 +3,12 @@ if [ -d $HOME/bin ] ; then
  PATH=$HOME/bin:$PATH
 fi
 
+# Load shell dotfiles
+for file in $HOME/.{aliases,functions}; do
+  [ -r "$file" ] && source "$file"
+done
+unset file
+
 ## Check that offsite backup has been completed 
 # Checks .backup_date for last date, and warns if it is over
 # one week ago
@@ -30,9 +36,3 @@ echo "Use ~/bin/backup_weekly to update"
 else
   echo "Last backup is good"
 fi
-
-# Load shell dotfiles
-for file in $HOME/.{aliases}; do
-  [ -r "$file" ] && source "$file"
-done
-unset file

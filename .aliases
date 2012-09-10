@@ -19,7 +19,7 @@ alias cd..="cd .."
 alias mann="man"
 alias l="ls"
 alias s="ls"
-alias sl="ls"
+alias sl="ls" # Replaces sl (Steam Locomovtive) with proper ls; installed using brew install sl
 
 # Fix Windows related typos
 alias ipconfig="ifconfig"
@@ -37,6 +37,14 @@ alias commit="git commit -a -m"
 alias ifen0="ifconfig en0"
 alias ifen1="ifconfig en1"
 alias bash_history="cut -f1 -d\" \" .bash_history | sort | uniq -c | sort -nr | head -n 10"
+
 alias timestamp="date +%s"
 alias timenow="date +%T"
 alias datenow="date +\"%Y-%m-%d\""
+
+alias cpprogress="rsync --progress -ravz"
+
+alias usage="du -ch | grep total" # Disk usage in the current directory
+
+# alias most='du -hsx * | sort -rh | head -10' # List what is using most space
+# May need GNU sort - does not work on stock OS X
