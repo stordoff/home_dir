@@ -1,7 +1,17 @@
+# Color vaiables
+YEL_ON_RED="33;1;41m"
+
 # Add ~/bin to the path if it exists
 if [ -d $HOME/bin ] ; then
  PATH=$HOME/bin:$PATH
 fi
+
+# Distinguish sudo shells
+export SUDO_PS1="\[\e[$YEL_ON_RED\][\u] \w \$\[\e[0m\] "
+export PS1="\u@\h:\W \$ "
+
+# Bash Options
+shopt -s checkwinsize
 
 # Load shell dotfiles
 for file in $HOME/.{aliases,functions}; do
