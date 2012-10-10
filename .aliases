@@ -20,6 +20,7 @@ alias mann="man"
 alias l="ls"
 alias s="ls"
 alias sl="ls" # Replaces sl (Steam Locomovtive) with proper ls; installed using brew install sl
+alias mdkir="mkdir"
 
 # Fix Windows related typos
 alias ipconfig="ifconfig"
